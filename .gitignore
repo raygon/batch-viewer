@@ -3,3 +3,5 @@
 __pycache__
 *.m~
 *.sublime*
+node_modules/*
+dist/*

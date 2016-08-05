@@ -1,0 +1,23 @@
+{
+  "name": "web-viz",
+  "version": "0.1.0",
+  "description": "Batch visualizations in the browswer.",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ray Gonzalez",
+  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "htmlhint": "^0.9.13"
+  }
+}
