@@ -1,4 +1,14 @@
+/** This module provides functions to render and wire up individual stimuli/inputs/components;
+for the demo, these are cochleagrams and associated sounds.
+Note, this set up as a module that will be "imported" into a controller file.
+Because of this, any variables or functions required publicly (or outside of
+this module) must be exposed using the exports.foo syntax. */
 (function(exports) {
+  /**
+  * Renders the control panel in the container div, then wires up events.
+  * @param {JSON-type object} title - The associative array data required to
+  populate the display being rendered.
+  */
   exports.render = function (stimData) {
     var ctFiltsStr = '';
     for (var i = 0; i < stimData.ct_filts.length; i++) {
@@ -39,6 +49,8 @@
     $('#'+stimData.id).click(handleCochleagramClick);
   };
 
+  /** Wraps the rendering code in a jQuery deferred for easily attaching callbacks
+  when the content has been rendered. */
   exports.renderAndPromise = function(stimData) {
     // return a promise object that gets resolved when the element is done rendering
     var dfd = jQuery.Deferred();
@@ -47,6 +59,7 @@
     return dfd.promise();
   };
 
+  /** Handle a click event by playing the sound associated with the stimulus that was clicked. */
   function handleCochleagramClick(evt) {
     evt.preventDefault(); // otherwise, it auto scrolls to the top of page
     var src = $(evt.currentTarget).prop("id");

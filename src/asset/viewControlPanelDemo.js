@@ -1,17 +1,25 @@
+/** This module provides functions to render and wire up a control panel
+to interact with the entire set of cochleagrams. Note, this set up as a module
+that will be "imported" into a controller file. Because of this, any variables
+or functions required publicly (or outside of this module) must be exposed
+using the exports.foo syntax. */
 (function(exports) {
   // some variables to keep track of state
   var isPlaying = false;
   var playInterval;
   var playCtr = 0;
 
+  /** Getter for isPlaying */
   exports.isPlaying = function() {
     return isPlaying;
   };
 
+  /** Getter for playCtr */
   exports.playCtr = function() {
     return playCtr;
   };
 
+  /** Renders the control panel in the container div, then wires up events. */
   exports.render = function () {
     $('#container').append(
       $('<div/>', {
@@ -27,7 +35,6 @@
       })
     );
     // bind events (to global interactions)
-    // $('.cochleagramHuman').hover(handleCochleagramHover);
     $('#toggleHumanCochleagramsButton').click(toggleHumanCochleagrams);
     $('#toggleFerretCochleagramsButton').click(toggleFerretCochleagrams);
     $('#toggleSpectraButton').click(toggleSpectra);
@@ -36,11 +43,13 @@
     $('#stopAllButton').click(stopAll);
   };
 
-  exports.renderAndPromise = function(stimData) {
+  /** Wraps the rendering code in a jQuery deferred for easily attaching callbacks
+  when the content has been rendered. */
+  exports.renderAndPromise = function() {
     // return a promise object that gets resolved when the element is done rendering
     var dfd = jQuery.Deferred();
     exports.render(stimData);
-    $('#cochleagram-div').on('pageDone', function(){dfd.resolve('consent page done');});
+    $('#controls').on('pageDone', function(){dfd.resolve('consent page done');});
     return dfd.promise();
   };
 
@@ -60,6 +69,8 @@
     $('.signal').toggle();
   }
 
+  /** Steps through all of the stimuli in stimList, playing the audio file for
+  each stimulus (by triggering a "click" event). */
   function playAll() {
     if (isPlaying) {
       $('#playAllButton').html('Resume');
@@ -83,6 +94,7 @@
     }
   }
 
+  /** Stops the audio playback that was caused by playAll().  */
   function stopAll() {
     clearInterval(playInterval);
     $('#'+stimList[playCtr].id).css('border', '2px solid black');
