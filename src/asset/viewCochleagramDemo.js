@@ -55,8 +55,4 @@
     filename = src + 'Sound';
     $('#'+filename)[0].play();
   }
-
-  function handleCochleagramHover(evt) {
-    $('#dialogImg').prop('src', evt.currentTarget.src);
-  }
 })(this.VIEW_COCHLEAGRAM_DEMO = {});

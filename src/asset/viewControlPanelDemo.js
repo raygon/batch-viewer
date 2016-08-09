@@ -1,5 +1,5 @@
 (function(exports) {
-  // some global variables to keep track of state
+  // some variables to keep track of state
   var isPlaying = false;
   var playInterval;
   var playCtr = 0;
@@ -78,7 +78,6 @@
         playCtr++;
         $('#'+stimList[playCtr].id).css('border', '6px solid blue');
         $('#'+stimList[playCtr].id)[0].scrollIntoView();
-        $('#dialogImg').prop('src', stimList[playCtr].fn_cochleagram_ferret);
         $('#'+stimList[playCtr].id).click();
       }, 500);
     }
