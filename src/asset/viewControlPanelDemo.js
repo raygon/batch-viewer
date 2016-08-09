@@ -85,6 +85,11 @@ using the exports.foo syntax. */
       $('#'+stimList[playCtr].id).click();
 
       playInterval = setInterval(function () {
+        if (playCtr >= stimList.length - 1) {
+          // reset player
+          stopAll();
+          return;
+        }
         $('#'+stimList[playCtr].id).css('border', '2px solid black');
         playCtr++;
         $('#'+stimList[playCtr].id).css('border', '6px solid blue');

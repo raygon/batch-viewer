@@ -1,5 +1,9 @@
 /** $(fx) is a jQuery function that runs the input function fx when the document is
 done loading. This sets up the cochleagram demo page. */
+
+// extract the stimList data from the jsonDataFile object, store as a global var
+var stimList = jsonDataFile.stimList;
+
 $(function setupCochleagramDemo(){
   // create a container div to hold everything (useful for styling)
   $('body').html(

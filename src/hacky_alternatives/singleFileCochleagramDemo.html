@@ -61,6 +61,10 @@
     var playInterval;
     var playCtr = 0;
 
+    // extract the stimList data from the jsonDataFile object, store as a global var
+    var stimList = jsonDataFile.stimList;
+
+
     $(function(){
       // add stimulus data to page
       for (var i = 0; i < stimList.length; i++) {
@@ -161,6 +165,11 @@
         $('#'+stimList[playCtr].id).click();
 
         playInterval = setInterval(function () {
+          if (playCtr >= stimList.length - 1) {
+            // reset player
+            stopAll();
+            return;
+          }
           $('#'+stimList[playCtr].id).css('border', '2px solid black');
           playCtr++;
           $('#'+stimList[playCtr].id).css('border', '6px solid blue');

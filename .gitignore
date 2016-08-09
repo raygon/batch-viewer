@@ -5,3 +5,4 @@ __pycache__
 *.sublime*
 node_modules/*
 dist/*
+README.html

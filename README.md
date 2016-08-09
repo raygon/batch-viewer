@@ -24,9 +24,13 @@ If you don't need to worry about having publicly accessible or production-qualit
 and collections of them.
 
 ## Getting Started
+The main batch viewer page can be accessed by opening batchViewer.html in a browser.
+
+### Grunt
 If you want to use Grunt to manage builds, you'll need to install nodejs, Grunt, and the packages required for this project. Also, you'll need to uncomment the relevant script tags in batchViewer.html so that only the minified source file is loaded. You'll then need to run a build to get the minified sources.
 
-The main batch viewer page can be accessed by opening batchViewer.html in a browser.
+### MATLAB Considerations 
+Standard MATLAB doesn't support JSON, but the [JSONlab toolbox](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files) allows for converting between structs and JSON.
 
 ## Demo: Visualizing and Listening to Cochleagrams
 The following files and folders should provide a working demo, used to visualize and listen to cochleagrams:
