@@ -31,23 +31,23 @@ The main batch viewer page can be accessed by opening batchViewer.html in a brow
 ## Demo: Visualizing and Listening to Cochleagrams
 The following files and folders should provide a working demo, used to visualize and listen to cochleagrams:
 
-    + data/
-        - media/: contains the  image and audio files needed for display.
-        - cochleagramDemoData.json: provides the JSON data file for representing cochleagram input objects.
-        - README_CochleagramDemoData.md: provides a short explanation of the cochleagramDemoData.json file used in the demo.
-    + src/
-        + asset/
-            - viewCochleagramDemo.js: contains the code to render and attach event listeners to individual cochleagram input objects
-            - viewControlPanelDemo.js: contains the code to create a basic control panel for interacting with cochleagram input objects.
-        - batchViewer.html: this is the main page, i.e., the page to load in the browser. Start from here.
-        - cochleagramDemoController.js: this is the main controller class that coordinates all rendering operations.
-        - batchViewerStyle.css: defines styles used for the demo. 
-    + lib/
-        - jquery-3.1.0.min.js: local copy of jQuery library for DOM manipulation.
++ *data/*
+    - *media/*: contains the  image and audio files needed for display.
+    - *cochleagramDemoData.json*: provides the JSON data file for representing cochleagram input objects.
+    - *README_CochleagramDemoData.md*: provides a short explanation of the cochleagramDemoData.json file used in the demo.
++ *src/*
+    + *asset/*
+        - *viewCochleagramDemo.js*: contains the code to render and attach event listeners to individual cochleagram input objects
+        - *viewControlPanelDemo.js*: contains the code to create a basic control panel for interacting with cochleagram input objects.
+    - *batchViewer.html*: this is the main page, i.e., the page to load in the browser. Start from here.
+    - *cochleagramDemoController.js*: this is the main controller class that coordinates all rendering operations.
+    - *batchViewerStyle.css*: defines styles used for the demo. 
++ *lib/*
+    - *jquery-3.1.0.min.js*: local copy of jQuery library for DOM manipulation.
 
 If you feel like this system is too spread out, or you don't want to deal with javascript modules, there is an additional folder to consider:
 
-    + src/
-        + hacky_alternatives/
-            - singleFileCochleagramDemo.html: this attempts to implement the same cochleagram visualization demo provided by the files listed above, but in a single file.
-            - singleElementCochleagramDemo.html: provides a naive implementation of a single cochleagram input object. This can be used as a starting point for making dynamically generated HTML.
++ *src/*
+    + *hacky_alternatives/*
+        - *singleFileCochleagramDemo.html*: this attempts to implement the same cochleagram visualization demo provided by the files listed above, but in a single file.
+        - *singleElementCochleagramDemo.html*: provides a naive implementation of a single cochleagram input object. This can be used as a starting point for making dynamically generated HTML.
