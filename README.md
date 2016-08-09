@@ -30,6 +30,7 @@ The main batch viewer page can be accessed by opening batchViewer.html in a brow
 
 ## Demo: Visualizing and Listening to Cochleagrams
 The following files and folders should provide a working demo, used to visualize and listen to cochleagrams:
+
     + *data/*
         - *media/*: contains the  image and audio files needed for display.
         - *cochleagramDemoData.json*: provides the JSON data file for representing cochleagram input objects.
@@ -45,6 +46,7 @@ The following files and folders should provide a working demo, used to visualize
         - *jquery-3.1.0.min.js*: local copy of jQuery library for DOM manipulation.
 
 If you feel like this system is too spread out, or you don't want to deal with javascript modules, there is an additional folder to consider:
+
     + *src/*
         + *hacky_alternatives/*
             - *singleFileCochleagramDemo.html*: this attempts to implement the same cochleagram visualization demo provided by the files listed above, but in a single file.
