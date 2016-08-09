@@ -43,7 +43,7 @@
     // return a promise object that gets resolved when the element is done rendering
     var dfd = jQuery.Deferred();
     exports.render(stimData);
-    $('#cochleagram-div').on('pageDone', function(){dfd.resolve('consent page done');});
+    $('#'+stimData.id).on('pageDone', function(){dfd.resolve('cochleagram demo page done rendering');});
     return dfd.promise();
   };
 

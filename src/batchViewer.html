@@ -13,27 +13,14 @@
     but this might cause issues on the local filesystem and might require a local server -->
     <script src="../data/cochleagramDemoData.json"></script>
 
-    <!-- Load main script and styles -->
+    <!-- Load the required dependencies before other source -->
     <script src="asset/viewCochleagramDemo.js"></script>
+    <script src="asset/viewControlPanelDemo.js"></script>
+
+    <!-- Load main script and styles -->
     <script src="cochleagramDemoController.js"></script>
     <link rel="stylesheet" type="text/css" href="batchViewerStyle.css" media="screen"/>
 
   </head>
-  <body>
-    <div id="outer">
-      <div id="container"></div>
-      <div id="controls">
-        <button id="toggleHumanCochleagramsButton" type="button">Toggle Human Cochleagrams</button>
-        <button id="toggleFerretCochleagramsButton" type="button">Toggle Ferret Cochleagrams</button>
-        <button id="toggleSpectraButton" type="button">Toggle Spectra</button>
-        <button id="toggleSignalsButton" type="button">Toggle Signals</button>
-        <button id="playAllButton" type="button">Play All</button>
-        <button id="stopAllButton" type="button">Reset Playback</button>
-      </div>
-      <div id="dialog" title="Basic dialog">
-        <img id="dialogImg" src="">
-      </div>
-    </div>
-
-  </body>
+  <body></body>
 </html>
