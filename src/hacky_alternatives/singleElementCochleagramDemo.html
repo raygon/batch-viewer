@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Single Element Demo</title>
+    <style type="text/css" media="screen">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .stimulusDiv {
+        padding: 2px;
+        margin: 2px;
+        border: 2px solid black;
+      }
+
+      .cochleagram {
+        position: relative;
+        height: 100px;
+        width: 300px;
+      }
+
+      .pwelch {
+        height: 100px;
+        width: 300px;
+      }
+
+      .signal {
+        height: 100px;
+        width: 300px;
+      }
+
+      .metadata {
+        display: block;
+      }
+    </style>
+
+    <script>
+      function handleCochleagramClick(srcElem) {
+        document.getElementById(srcElem.id + 'Sound').play();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="train_combined_c00_1" class="stimulusDiv" onclick="handleCochleagramClick(this);">
+      <a href="#" title="train_combined_c00_1" name="train_combined_c00_1">
+        <img class="cochleagram cochleagramHuman" src="../../data/media/train_combined_c00_1_cochleagram_human.png">
+      </a>
+      <br>
+      <img class="cochleagram cochleagramFerret" src="../../data/media/train_combined_c00_1_cochleagram_ferret.png">
+      <br>
+      <img class="pwelch" src="../../data/media/train_combined_c00_1_pwelch.png">
+      <br>
+      <img class="signal" src="../../data/media/train_combined_c00_1_signal.png">
+      <audio id="train_combined_c00_1Sound">
+        <source src="../../data/media/train_combined_c00_1.wav" type="audio/wav">Your browser does not support the audio element.
+      </audio>
+      <div id="train_combined_c00_1Metadata" class="metadata">
+        <b>label
+        </b>: 0
+        <br>
+        <b>f0
+        </b>: 101.61
+        <br>
+        <b>snr
+        </b>: 13
+        <br>
+        <b>ct_filts:
+        </b>[1057,0]
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2861,5510]
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1087,2132]
+        <br>
+      </div>
+    </div>
+  </body>
+</html>

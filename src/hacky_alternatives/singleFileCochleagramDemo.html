@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script src="../../data/cochleagramDemoData.json"></script>
+  <style type="text/css" media="screen">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #controls {
+      position: fixed;
+      left: 89%;
+      top: 5%;
+      width: 10%;
+      border: 2px solid blue;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    button {
+      opacity: 1.0;
+      margin: 2px;
+    }
+
+    .stimulusDiv {
+      padding: 2px;
+      margin: 2px;
+      border: 2px solid black;
+    }
+
+    .cochleagram {
+      position: relative;
+      height: 100px;
+      width: 300px;
+    }
+
+    .pwelch {
+      display: none;
+      height: 100px;
+      width: 300px;
+    }
+
+    .signal {
+      display: none;
+      height: 100px;
+      width: 300px;
+    }
+
+    .metadata {
+      display: block;
+    }
+  </style>
+  <script>
+    var isPlaying = false;
+    var playInterval;
+    var playCtr = 0;
+
+    $(function(){
+      // add stimulus data to page
+      for (var i = 0; i < stimList.length; i++) {
+        renderStimuliElement(stimList[i]);
+      }
+
+      // bind events
+      $('.stimulusDiv').click(handleCochleagramClick);
+      $('#toggleHumanCochleagramsButton').click(toggleHumanCochleagrams);
+      $('#toggleFerretCochleagramsButton').click(toggleFerretCochleagrams);
+      $('#toggleSpectraButton').click(toggleSpectra);
+      $('#toggleSignalsButton').click(toggleSignals);
+      $('#playAllButton').click(playAll);
+      $('#stopAllButton').click(stopAll);
+    });
+
+    function renderStimuliElement(stim_id) {
+      { // We to change the paths because of where this file is located
+        stim_id.fn_cochleagram_human = stim_id.fn_cochleagram_human.replace('../', '../../');
+        stim_id.fn_cochleagram_ferret = stim_id.fn_cochleagram_ferret.replace('../', '../../');
+        stim_id.fn_sound = stim_id.fn_sound.replace('../', '../../');
+        stim_id.fn_pwelch = stim_id.fn_pwelch.replace('../', '../../');
+        stim_id.fn_signal = stim_id.fn_signal.replace('../', '../../');
+      }
+      var ct_filts_str = '';
+      for (var i = 0; i < stim_id.ct_filts.length; i++) {
+        if (i === 0) {
+          s_prefix = '<b>ct_filts: </b>';
+        }
+        else {
+          s_prefix = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        }
+        ct_filts_str += s_prefix + '[' + stim_id.ct_filts[i].map(function (x) {return truncateToNDecimals(x, 0);}) + ']<br/>';
+      }
+      $('#container').append(
+            '<div id="'+stim_id.id+'" class="stimulusDiv">'+
+              '<a href="#" title="'+stim_id.id+'" name="'+stim_id.id+'">'+
+              '<img class="cochleagram cochleagram_human" src="' + stim_id.fn_cochleagram_human + '">'+
+              '</a>'+
+              '<br/>'+
+              '<img class="cochleagram cochleagram_ferret" src="' + stim_id.fn_cochleagram_ferret + '">'+
+              '<br/>'+
+              '<img class="pwelch" src="' + stim_id.fn_pwelch + '">'+
+              '<br/>'+
+              '<img class="signal" src="' + stim_id.fn_signal + '">'+
+              '<audio id="' + stim_id.id + 'Sound">'+
+                '<source src="' + stim_id.fn_sound + '" type="audio/wav">'+
+                'Your browser does not support the audio element.'+
+              '</audio>'+
+              '<div id="'+stim_id.id+'Metadata" class="metadata">'+
+                '<b>label</b>: ' + stim_id.label+'<br/>'+
+                '<b>f0</b>: ' + truncateToNDecimals(stim_id.f0, 2)+'<br/>'+
+                '<b>snr</b>: ' + truncateToNDecimals(stim_id.snr, 2)+'<br/>'+
+                ct_filts_str +
+              '</div>'+
+            '</div>');
+    }
+
+    /** Handle a click event by playing the sound associated with the stimulus that was clicked. */
+    function handleCochleagramClick(evt) {
+      evt.preventDefault(); // otherwise, it auto scrolls to the top of page
+      var src = $(evt.currentTarget).prop("id");
+      // console.log(src);
+      var filename = src.split('/').pop();
+      filename = src + 'Sound';
+      $('#'+filename)[0].play();
+    }
+
+    function toggleSpectra() {
+      $('.pwelch').toggle();
+    }
+
+    function toggleHumanCochleagrams() {
+      $('.cochleagramHuman').toggle();
+    }
+
+    function toggleFerretCochleagrams() {
+      $('.cochleagramFerret').toggle();
+    }
+
+    function toggleSignals() {
+      $('.signal').toggle();
+    }
+
+    /** Steps through all of the stimuli in stimList, playing the audio file for
+    each stimulus (by triggering a "click" event). */
+    function playAll() {
+      if (isPlaying) {
+        $('#playAllButton').html('Resume');
+        clearInterval(playInterval);
+        isPlaying = false;
+      }
+      else {
+        isPlaying = true;
+        $('#playAllButton').html('Pause');
+        $('#'+stimList[playCtr].id).css('border', '6px solid blue');
+        $('#'+stimList[playCtr].id)[0].scrollIntoView();
+        $('#'+stimList[playCtr].id).click();
+
+        playInterval = setInterval(function () {
+          $('#'+stimList[playCtr].id).css('border', '2px solid black');
+          playCtr++;
+          $('#'+stimList[playCtr].id).css('border', '6px solid blue');
+          $('#'+stimList[playCtr].id)[0].scrollIntoView();
+          $('#'+stimList[playCtr].id).click();
+        }, 500);
+      }
+    }
+
+    /** Stops the audio playback that was caused by playAll().  */
+    function stopAll() {
+      clearInterval(playInterval);
+      $('#'+stimList[playCtr].id).css('border', '2px solid black');
+      $('#playAllButton').html('Play All');
+      playCtr = 0;
+      isPlaying = false;
+    }
+
+    /**
+     * Truncates the given value to n decimal places, useful for displaying floats.
+     * @param {number} val - The number to be truncated.
+     * @param {int} nDecimals - The number of decimal places to retain.
+     */
+    function truncateToNDecimals(val, nDecimals) {
+      nDecimals = nDecimals >= 0 ? nDecimals : 0;
+      mulFactor = Math.pow(10, nDecimals);
+      return Math.round(mulFactor * val) / mulFactor;
+    }
+  </script>
+</head>
+<body>
+  <div id="outer">
+    <div id="container"></div>
+    <div id="controls">
+      <button id="toggleHumanCochleagramsButton" type="button">Toggle Human Cochleagrams</button>
+      <button id="toggleFerretCochleagramsButton" type="button">Toggle Ferret Cochleagrams</button>
+      <button id="toggleSpectraButton" type="button">Toggle Spectra</button>
+      <button id="toggleSignalsButton" type="button">Toggle Signals</button>
+      <button id="playAllButton" type="button">Play All</button>
+      <button id="stopAllButton" type="button">Reset Playback</button>
+    </div>
+  </div>
+</body>
+</html>
