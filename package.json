@@ -1,7 +1,7 @@
 {
-  "name": "web-viz",
+  "name": "batchViewer",
   "version": "0.1.0",
-  "description": "Batch visualizations in the browswer.",
+  "description": "Batch visualizations in the browser.",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

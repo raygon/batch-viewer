@@ -3,24 +3,29 @@
   <head>
     <!-- Load JQuery for easier DOM manipulation -->
     <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-
     <!-- Load JQuery UI for easier UI components (this is not required) -->
-    <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"" rel="stylesheet">
-    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
-    <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
+    <!-- <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css"> -->
+    <!-- <script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script> -->
 
     <!-- This a hack to import the JSON data file. You could use an AJAX requests,
     but this might cause issues on the local filesystem and might require a local server -->
     <script src="../data/cochleagramDemoData.json"></script>
 
-    <!-- Load the required dependencies before other source -->
-    <script src="asset/viewCochleagramDemo.js"></script>
-    <script src="asset/viewControlPanelDemo.js"></script>
-
-    <!-- Load main script and styles -->
-    <script src="cochleagramDemoController.js"></script>
+    <!-- Load the styles for the page -->
     <link rel="stylesheet" type="text/css" href="batchViewerStyle.css" media="screen"/>
 
+    <!-- Use the following line if building with Grunt, comment out or delete otherwise. -->
+    <script src="../dist/batchViewer.min.js"></script>
+
+    <!-- If you are not using Grunt, you'll need to load all of the necessary components
+    individually. Dependencies must be imported in the order they are used (notice how
+    the controller file is loaded last). If a dependency is not available when
+    it is used, it will cause an error and possibly crash the page. Uncomment
+    the following lines to run the demo without Grunt. -->
+    <!-- <script src="asset/viewCochleagramDemo.js"></script> -->
+    <!-- <script src="asset/viewControlPanelDemo.js"></script> -->
+    <!-- <script src="cochleagramDemoController.js"></script> -->
   </head>
   <body></body>
 </html>
