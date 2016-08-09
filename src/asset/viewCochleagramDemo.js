@@ -32,6 +32,7 @@ this module) must be exposed using the exports.foo syntax. */
             '<img class="cochleagram cochleagramFerret" src="' + stimData.fn_cochleagram_ferret + '">'+
             '<br/>'+
             '<img class="pwelch" src="' + stimData.fn_pwelch + '">'+
+            '<br/>'+
             '<img class="signal" src="' + stimData.fn_signal + '">'+
             '<audio id="' + stimData.id + 'Sound">'+
               '<source src="' + stimData.fn_sound + '" type="audio/wav">'+

@@ -48,7 +48,7 @@ using the exports.foo syntax. */
   exports.renderAndPromise = function() {
     // return a promise object that gets resolved when the element is done rendering
     var dfd = jQuery.Deferred();
-    exports.render(stimData);
+    exports.render();
     $('#controls').on('pageDone', function(){dfd.resolve('consent page done');});
     return dfd.promise();
   };

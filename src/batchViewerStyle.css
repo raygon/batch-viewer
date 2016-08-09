@@ -22,22 +22,6 @@ button {
   margin: 2px;
 }
 
-#dialog {
-  display: none;
-  position: fixed;
-  left: 0%;
-  bottom: 0%;
-  height: 20%;
-  width: 100%;
-  text-align: center;
-  background-color: black;
-}
-
-#dialogImg {
-  position: relative;
-  top: 10px;
-}
-
 .stimulusDiv {
   padding: 2px;
   margin: 2px;
