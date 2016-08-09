@@ -1,86 +1,62 @@
-// $('#container').append(
-//       '<div id="'+stimData.id+'" class="stimulus_div">'+
-//         '<a href="#" title="'+stimData.id+'" name="'+stimData.id+'">'+
-//         '<img class="cochleagram cochleagram_human" src="' + stimData.fn_cochleagram_human + '">'+
-//         '</a>'+
-//         '<br/>'+
-//         '<img class="cochleagram cochleagram_ferret" src="' + stimData.fn_cochleagram_ferret + '">'+
-//         '<br/>'+
-//         '<img class="pwelch" src="' + stimData.fn_pwelch + '">'+
-//         '<img class="signal" src="' + stimData.fn_signal + '">'+
-//         '<audio id="' + stimData.id + '_sound">'+
-//           '<source src="' + stimData.fn_sound + '" type="audio/wav">'+
-//           'Your browser does not support the audio element.'+
-//         '</audio>'+
-//         '<div id="'+stimData.id+'_metadata" class="metadata">'+
-//           '<b>label</b>: ' + stimData.label+'<br/>'+
-//           '<b>f0</b>: ' + cheap_round(stimData.f0, 2)+'<br/>'+
-//           // '<b>harm_range</b>: ' + stimData.harm_range+'<br/>'+
-//           '<b>snr</b>: ' + cheap_round(stimData.snr, 2)+'<br/>'+
-//           '<b>slope</b>: ' + stimData.slope+'<br/>'+
-//           ct_filts_str +
-//         '</div>'+
-//       '</div>');
-
 (function(exports) {
   exports.render = function (stimData) {
+    var ctFiltsStr = '';
+    for (var i = 0; i < stimData.ct_filts.length; i++) {
+      if (i === 0) {
+        sPrefix = '<b>ct_filts: </b>';
+      }
+      else {
+        sPrefix = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+      }
+      ctFiltsStr += sPrefix + '[' + stimData.ct_filts[i].map(function (x) {return truncateToNDecimals(x, 0);}) + ']<br/>';
+    }
     $('#container').append(
       $('<div/>', {
         id: stimData.id,
-        class: "stimulus_div",
+        class: "stimulusDiv",
         html:
             '<a href="#" title="'+stimData.id+'" name="'+stimData.id+'">'+
-            '<img class="cochleagram cochleagram_human" src="' + stimData.fn_cochleagram_human + '">'+
+            '<img class="cochleagram cochleagramHuman" src="' + stimData.fn_cochleagram_human + '">'+
             '</a>'+
             '<br/>'+
-            '<img class="cochleagram cochleagram_ferret" src="' + stimData.fn_cochleagram_ferret + '">'+
+            '<img class="cochleagram cochleagramFerret" src="' + stimData.fn_cochleagram_ferret + '">'+
             '<br/>'+
             '<img class="pwelch" src="' + stimData.fn_pwelch + '">'+
             '<img class="signal" src="' + stimData.fn_signal + '">'+
-            '<audio id="' + stimData.id + '_sound">'+
+            '<audio id="' + stimData.id + 'Sound">'+
               '<source src="' + stimData.fn_sound + '" type="audio/wav">'+
               'Your browser does not support the audio element.'+
             '</audio>'+
-            '<div id="'+stimData.id+'_metadata" class="metadata">'+
+            '<div id="'+stimData.id+'Metadata" class="metadata">'+
               '<b>label</b>: ' + stimData.label+'<br/>'+
-              '<b>f0</b>: ' + cheap_round(stimData.f0, 2)+'<br/>'+
-              // '<b>harm_range</b>: ' + stimData.harm_range+'<br/>'+
-              '<b>snr</b>: ' + cheap_round(stimData.snr, 2)+'<br/>'+
-              '<b>slope</b>: ' + stimData.slope+'<br/>'+
-              // ct_filts_str +
+              '<b>f0</b>: ' + truncateToNDecimals(stimData.f0, 2)+'<br/>'+
+              '<b>snr</b>: ' + truncateToNDecimals(stimData.snr, 2)+'<br/>'+
+              ctFiltsStr +
             '</div>'
       })
     );
-    // // wire up events
-    // $('#consentCheckbox').on('change', exports.validateConsent);
-    // $('#consentButton').click(function(){
-    //   if (exports.validateConsent()) {
-    //     $('#consent').hide();
-    //     $('#instructions').show();
-    //     // CONTROLLER.hasConsented = true;
-    //     // Tell S3 that someone has started this task
-    //     // CONTROLLER.ajaxSubmitResponse('START');
-    //     $('#consentForm').trigger('pageDone');
-    //   }
-    // });
+    // wire up events
+    $('#'+stimData.id).click(handleCochleagramClick);
   };
 
-  // exports.validateConsent = function() {
-  //   var isValid = $('#consentCheckbox').is(':checked');
-  //   if (isValid) {
-  //     $('#consentError').css('visibility', 'hidden');
-  //   }
-  //   else {
-  //     $('#consentError').css('visibility', 'visible');
-  //   }
-  //   return isValid;
-  // };
-
   exports.renderAndPromise = function(stimData) {
-    // return a promise object that gets resolved when the page is done
+    // return a promise object that gets resolved when the element is done rendering
     var dfd = jQuery.Deferred();
     exports.render(stimData);
     $('#cochleagram-div').on('pageDone', function(){dfd.resolve('consent page done');});
     return dfd.promise();
   };
+
+  function handleCochleagramClick(evt) {
+    evt.preventDefault(); // otherwise, it auto scrolls to the top of page
+    var src = $(evt.currentTarget).prop("id");
+    console.log(src);
+    var filename = src.split('/').pop();
+    filename = src + 'Sound';
+    $('#'+filename)[0].play();
+  }
+
+  function handleCochleagramHover(evt) {
+    $('#dialogImg').prop('src', evt.currentTarget.src);
+  }
 })(this.VIEW_COCHLEAGRAM_DEMO = {});
