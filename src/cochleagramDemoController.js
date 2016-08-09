@@ -20,7 +20,7 @@ $(function setupCochleagramDemo(){
 /**
  * Truncates the given value to n decimal places, useful for displaying floats.
  * @param {number} val - The number to be truncated.
- * @param {int} author - The number of decimal places to retain.
+ * @param {int} nDecimals - The number of decimal places to retain.
  */
 function truncateToNDecimals(val, nDecimals) {
   nDecimals = nDecimals >= 0 ? nDecimals : 0;

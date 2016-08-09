@@ -64,7 +64,7 @@ this module) must be exposed using the exports.foo syntax. */
   function handleCochleagramClick(evt) {
     evt.preventDefault(); // otherwise, it auto scrolls to the top of page
     var src = $(evt.currentTarget).prop("id");
-    console.log(src);
+    // console.log(src);
     var filename = src.split('/').pop();
     filename = src + 'Sound';
     $('#'+filename)[0].play();
