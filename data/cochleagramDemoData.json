@@ -1,0 +1,622 @@
+var stimList = [
+  {
+    "id": "train_combined_c00_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c00_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c00_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c00_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c00_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c00_1.wav",
+    "f0": 101.60874506555868,
+    "label": 0,
+    "snr": 13,
+    "ct_filts": [
+      [
+        1057.343218956524,
+        0.0
+      ],
+      [
+        2860.764163411614,
+        5509.903486635003
+      ],
+      [
+        1086.8593944645409,
+        2131.976086925424
+      ]
+    ],
+    "noise_filts": [
+      [
+        125.49451282819155,
+        4702.931496367841
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c01_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c01_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c01_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c01_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c01_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c01_1.wav",
+    "f0": 103.45267363236574,
+    "label": 1,
+    "snr": 0,
+    "ct_filts": [
+      [
+        1615.8133176294552,
+        0.0
+      ],
+      [
+        309.3809577185885,
+        559.0970084952204
+      ],
+      [
+        2360.7032898520147,
+        3701.573097426226
+      ]
+    ],
+    "noise_filts": [
+      [
+        991.8605169486341,
+        5411.036261080083
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c02_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c02_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c02_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c02_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c02_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c02_1.wav",
+    "f0": 106.2756369907176,
+    "label": 2,
+    "snr": 9,
+    "ct_filts": [
+      [
+        473.87008683361535,
+        0.0
+      ],
+      [
+        961.384522822729,
+        1843.1146306553105
+      ],
+      [
+        427.9709559788837,
+        791.1429430065784
+      ]
+    ],
+    "noise_filts": [
+      [
+        571.482118197021,
+        7707.235584970593
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c03_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c03_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c03_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c03_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c03_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c03_1.wav",
+    "f0": 111.18837380264915,
+    "label": 3,
+    "snr": -8,
+    "ct_filts": [
+      [
+        4024.4434342398645,
+        0.0
+      ],
+      [
+        157.3487736876424,
+        241.43513703589554
+      ],
+      [
+        302.66026539169354,
+        519.7872131245626
+      ]
+    ],
+    "noise_filts": [
+      [
+        580.9974048219347,
+        6643.962381130825
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c04_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c04_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c04_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c04_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c04_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c04_1.wav",
+    "f0": 114.61779779254456,
+    "label": 4,
+    "snr": 15,
+    "ct_filts": [
+      [
+        5467.154643502279,
+        0.0
+      ],
+      [
+        2829.7418946549337,
+        4241.881223836305
+      ],
+      [
+        1150.8458823270932,
+        2087.2331244969773
+      ]
+    ],
+    "noise_filts": [
+      [
+        234.37952484086964,
+        6663.186348223613
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c05_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c05_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c05_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c05_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c05_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c05_1.wav",
+    "f0": 116.47998945430314,
+    "label": 5,
+    "snr": 2,
+    "ct_filts": [
+      [
+        543.8032981887947,
+        0.0
+      ],
+      [
+        1827.7596361987412,
+        3146.7808178147816
+      ],
+      [
+        797.2608298866948,
+        1253.2708163046889
+      ]
+    ],
+    "noise_filts": [
+      [
+        1219.0131944577274,
+        5425.105614760983
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c06_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c06_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c06_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c06_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c06_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c06_1.wav",
+    "f0": 122.318995721914,
+    "label": 6,
+    "snr": 3,
+    "ct_filts": [
+      [
+        2015.69909026252,
+        0.0
+      ],
+      [
+        539.1965423356944,
+        1011.557738951341
+      ],
+      [
+        208.39035927134634,
+        311.4515029654171
+      ]
+    ],
+    "noise_filts": [
+      [
+        905.0141562637182,
+        9019.957361814471
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c07_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c07_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c07_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c07_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c07_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c07_1.wav",
+    "f0": 124.08551746464434,
+    "label": 7,
+    "snr": -8,
+    "ct_filts": [
+      [
+        1001.0508702067735,
+        0.0
+      ],
+      [
+        1760.3639247855378,
+        2560.7083627076436
+      ],
+      [
+        1659.5792853078467,
+        3296.7531842811663
+      ]
+    ],
+    "noise_filts": [
+      [
+        1480.5620871365422,
+        8449.407286350113
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c08_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c08_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c08_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c08_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c08_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c08_1.wav",
+    "f0": 126.19981281546515,
+    "label": 8,
+    "snr": -8,
+    "ct_filts": [
+      [
+        9145.49839015805,
+        0.0
+      ],
+      [
+        135.7617341522382,
+        245.1787690732939
+      ],
+      [
+        1142.0535262366384,
+        2010.3509772634268
+      ]
+    ],
+    "noise_filts": [
+      [
+        841.9909750276756,
+        5905.317970636031
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c09_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c09_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c09_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c09_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c09_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c09_1.wav",
+    "f0": 130.4678522963288,
+    "label": 9,
+    "snr": 11,
+    "ct_filts": [
+      [
+        2817.23136776627,
+        0.0
+      ],
+      [
+        2167.63561856458,
+        4320.268949101787
+      ],
+      [
+        186.78694995397697,
+        364.1441035986567
+      ]
+    ],
+    "noise_filts": [
+      [
+        830.5671054293362,
+        6752.3001661698145
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c10_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c10_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c10_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c10_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c10_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c10_1.wav",
+    "f0": 134.33648740669477,
+    "label": 10,
+    "snr": 15,
+    "ct_filts": [
+      [
+        6386.2143332371315,
+        0.0
+      ],
+      [
+        970.232413370129,
+        1409.5804361367395
+      ],
+      [
+        3026.167017431926,
+        5885.610952484338
+      ]
+    ],
+    "noise_filts": [
+      [
+        1693.0038281682005,
+        8386.920914899069
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c11_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c11_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c11_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c11_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c11_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c11_1.wav",
+    "f0": 137.7254864171667,
+    "label": 11,
+    "snr": -6,
+    "ct_filts": [
+      [
+        2365.6191408812415,
+        0.0
+      ],
+      [
+        426.9302765174199,
+        789.5888193062319
+      ],
+      [
+        3599.297056927197,
+        7127.244667923195
+      ]
+    ],
+    "noise_filts": [
+      [
+        645.6239783575083,
+        3945.235598166805
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c12_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c12_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c12_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c12_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c12_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c12_1.wav",
+    "f0": 141.78757647131582,
+    "label": 12,
+    "snr": 7,
+    "ct_filts": [
+      [
+        600.0689692724753,
+        0.0
+      ],
+      [
+        4377.50530361693,
+        7005.38962084824
+      ],
+      [
+        1957.2629054978515,
+        3044.62090788047
+      ]
+    ],
+    "noise_filts": [
+      [
+        71.13080944771355,
+        9310.014912848908
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c13_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c13_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c13_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c13_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c13_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c13_1.wav",
+    "f0": 146.95999233727952,
+    "label": 13,
+    "snr": 13,
+    "ct_filts": [
+      [
+        522.6855822811342,
+        0.0
+      ],
+      [
+        2601.053306755007,
+        4671.207736110111
+      ],
+      [
+        637.6423810028089,
+        1260.4385371693013
+      ]
+    ],
+    "noise_filts": [
+      [
+        484.82441372756784,
+        7211.527788516825
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c14_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c14_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c14_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c14_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c14_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c14_1.wav",
+    "f0": 151.54903508441774,
+    "label": 14,
+    "snr": -4,
+    "ct_filts": [
+      [
+        957.5248627253089,
+        0.0
+      ],
+      [
+        1700.8233075509943,
+        3023.665628482093
+      ],
+      [
+        748.3181573479137,
+        1348.9984186852057
+      ]
+    ],
+    "noise_filts": [
+      [
+        1266.5277140757125,
+        8085.807139583548
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c15_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c15_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c15_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c15_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c15_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c15_1.wav",
+    "f0": 156.6941596399357,
+    "label": 15,
+    "snr": 7,
+    "ct_filts": [
+      [
+        575.6155359430746,
+        0.0
+      ],
+      [
+        2004.47446770756,
+        3234.825817399096
+      ],
+      [
+        543.2789551303139,
+        885.1254090725828
+      ]
+    ],
+    "noise_filts": [
+      [
+        1252.0713648439662,
+        7688.557746485411
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c16_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c16_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c16_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c16_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c16_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c16_1.wav",
+    "f0": 159.7250086278889,
+    "label": 16,
+    "snr": 5,
+    "ct_filts": [
+      [
+        9094.43693810668,
+        0.0
+      ],
+      [
+        458.4961014551754,
+        708.4542249069214
+      ],
+      [
+        2132.5184713482654,
+        3418.8375185985115
+      ]
+    ],
+    "noise_filts": [
+      [
+        1283.798928929657,
+        8568.466121466408
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c17_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c17_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c17_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c17_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c17_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c17_1.wav",
+    "f0": 166.24808298700384,
+    "label": 17,
+    "snr": 19,
+    "ct_filts": [
+      [
+        637.204588339957,
+        0.0
+      ],
+      [
+        5791.579581133574,
+        9035.125892681954
+      ],
+      [
+        5289.929567280674,
+        7823.796251894516
+      ]
+    ],
+    "noise_filts": [
+      [
+        476.6162868823558,
+        5218.958093634881
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c18_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c18_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c18_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c18_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c18_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c18_1.wav",
+    "f0": 171.69738835620882,
+    "label": 18,
+    "snr": 14,
+    "ct_filts": [
+      [
+        664.9901797638604,
+        0.0
+      ],
+      [
+        381.64593278053064,
+        678.6726397520383
+      ],
+      [
+        352.77493361222537,
+        574.9574829003873
+      ]
+    ],
+    "noise_filts": [
+      [
+        308.2485169295378,
+        2946.894138914056
+      ]
+    ]
+  },
+  {
+    "id": "train_combined_c19_1",
+    "fn_cochleagram_ferret": "../data/media/train_combined_c19_1_cochleagram_ferret.png",
+    "fn_cochleagram_human": "../data/media/train_combined_c19_1_cochleagram_human.png",
+    "fn_pwelch": "../data/media/train_combined_c19_1_pwelch.png",
+    "fn_signal": "../data/media/train_combined_c19_1_signal.png",
+    "fn_sound": "../data/media/train_combined_c19_1.wav",
+    "f0": 176.09392506682832,
+    "label": 19,
+    "snr": -2,
+    "ct_filts": [
+      [
+        558.643661819811,
+        0.0
+      ],
+      [
+        5276.468059222664,
+        9432.847460083693
+      ],
+      [
+        1402.7245646630008,
+        2188.14099917138
+      ]
+    ],
+    "noise_filts": [
+      [
+        1367.7265345907495,
+        6373.17439793637
+      ]
+    ]
+  }
+]
